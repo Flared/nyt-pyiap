@@ -2,7 +2,6 @@ from pyiap import validate_iap_jwt
 
 from django.http import HttpResponse
 
-
 class VerifyJWTMiddleware(object):
     def process_request(self, request):
         """
@@ -37,3 +36,7 @@ class VerifyJWTMiddleware(object):
             # Assign the ID and email to the request if they exist.
             request.jwt_user_id = response.get('jwt_user_id', None)
             request.jwt_user_email = response.get('jwt_user_email', None)
+
+            # Assign the meta REMOTE_USER to be used with RemoteUserMiddleware.
+            if request.jwt_user_email is not None:
+                request.META['REMOTE_USER'] = request.jwt_user_email
