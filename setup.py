@@ -23,7 +23,7 @@ setup(
     entry_points={},
     license="Apache License 2.0",
     keywords='google identity-aware proxy iap jwt',
-    install_requires=['pyjwt', 'requests', 'google', 'google-auth', 'requests_toolbelt'],
+    install_requires=['pyjwt[crypto]', 'requests', 'google', 'google-auth', 'requests_toolbelt'],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
