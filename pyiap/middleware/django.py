@@ -1,5 +1,5 @@
+from __future__ import absolute_import
 from pyiap import validate_iap_jwt
-
 from django.http import HttpResponse
 
 class VerifyJWTMiddleware(object):
